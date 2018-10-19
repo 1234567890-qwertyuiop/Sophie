@@ -29,14 +29,32 @@ gender_recognition(Rice)
 
 
 # Now, let's loop through 105 photos ----
-photos <- c("https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/m1.jpg?raw=true",
-            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/m2.jpg?raw=true",
-            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/m3.jpg?raw=true",
-            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/m4.jpg?raw=true",
-            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f1.jpg?raw=true",
-            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f1.jpg?raw=true"
-            )
 gender <- NULL
+photos <- c("https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f1.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f2.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f3.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f4.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f5.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f6.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f7.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f8.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f9.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f10.jpg?raw=true"   
+            )
+
+photos <- c(
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f11.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f12.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f13.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f14.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f15.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f16.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f17.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f18.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f19.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f20.jpg?raw=true" 
+            )
+
 for (url in 1:length(photos)) {
   
   candidate = list(url = photos[url])
@@ -106,6 +124,6 @@ compare_candidates <- function(x, y) {
   }
 }
 
-compare_candidates(dataGender[1], dataGender[5])
+compare_candidates(Obama, Rice)
 
 
