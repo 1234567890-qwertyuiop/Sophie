@@ -5,48 +5,56 @@ library(cbn)
 Oxford = "https://api.projectoxford.ai/face/v1.0/detect?returnFaceAttributes=gender"
 csAPI = "7d8c715138f545baacb62db3c1f22adb" # You need to grab your own API
 
-# Pictures of politicians ----
-Obama = "https://upload.wikimedia.org/wikipedia/commons/e/e9/Official_portrait_of_Barack_Obama.jpg"
-Rice = "http://www.femstory.com/images/condoleezza-rice.jpg"
-Lincoln = "https://psmag.com/.image/t_share/MTI3NTgxNjM1NzcxMTU2NDkw/lincoln-portrait.jpg"
-Farrar = "https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/03/13/07/state-representative-jessica-farrar-texas.jpg?w968h681"
-senator = "https://github.com/peoplecure/Sophie/blob/master/115th%20Congress/WebsiteBioPhoto.jpg?raw=true"
-
-# Live API method (This will not work if Microsoft discontinues Face API services) ----
-# Gender recognition function (Microsoft has a guide for creating this in python)
-          gender_recognition <- function (g) {
-            candidate = list(url = g)
-            faceRecognition = POST(Oxford,
-                                   content_type('application/json'), 
-                                   encode = 'json',
-                                   body = candidate,
-                                   add_headers(.headers = c('Ocp-Apim-Subscription-Key' = csAPI))
-            )
-            do.call(rbind,
-                    content(faceRecognition)[[1]]
-                    $faceAttributes['gender'])[1]
-            
-          }
+# Gender detection powered by Microsoft Cognitive Services ----
+# This is the function for face detection
+gender_recognition <- function (g) {
+  candidate = list(url = g)
+  faceRecognition = POST(Oxford,
+                         content_type('application/json'), 
+                         encode = 'json',
+                         body = candidate,
+                         add_headers(.headers = c('Ocp-Apim-Subscription-Key' = csAPI))
+  )
+  do.call(rbind,
+          content(faceRecognition)[[1]]
+          $faceAttributes['gender'])[1]
+}
 
 # Test it
-          obama_gender = gender_recognition(Obama)
-          obama_gender
+Obama <- "https://upload.wikimedia.org/wikipedia/commons/e/e9/Official_portrait_of_Barack_Obama.jpg"
+gender_recognition(Obama)
+
+Rice <- "http://www.femstory.com/images/condoleezza-rice.jpg"
+gender_recognition(Rice)
+
+
+# Now, let's loop through 105 photos ----
+gender <- NULL
+photos <- c("https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/220px-Senator_Doug_Jones_official_photo.jpg?raw=true",
+             "http://www.femstory.com/images/condoleezza-rice.jpg")
+
+for (url in 1:length(photos)) {
+  
+  candidate = list(url = photos[url])
+  faceRecognition = POST(Oxford,
+                         content_type('application/json'), 
+                         encode = 'json',
+                         body = candidate,
+                         add_headers(.headers = c('Ocp-Apim-Subscription-Key' = csAPI))
+  )
+  
+  genderID <- (do.call(rbind,
+                       content(faceRecognition)[[1]]
+                       $faceAttributes['gender'])[1])
+  gender   <- c(gender, genderID)
+  
+}
+
+dataGender <- cbind(photos, gender)
+View(dataGender)
+
           
-          rice_gender = gender_recognition(Rice)
-          rice_gender
-          
-          gender_recognition(senator)
-          
-# alternatively, you can directly add the image url to the function
-          gender_recognition("https://upload.wikimedia.org/wikipedia/commons/e/e9/Official_portrait_of_Barack_Obama.jpg")
-          
-          
-          
-          
-          
-# Compare candidates function via live distance calculation and facial recognition
-# The process takes a longer time
-# Choose whichever candidate from the list or create a new variable
+# Comparing two candidates by photo
 compare_candidates <- function(x, y) {
   
   require(cbn)
@@ -95,11 +103,5 @@ compare_candidates <- function(x, y) {
 }
 
 compare_candidates(Obama, Rice)
-compare_candidates(Farrar, Obama)
-compare_candidates(Obama, Lincoln)
-compare_candidates(Rice, Farrar)
-compare_candidates(Obama, senator)
-
-# pre-saved method ----
 
 
