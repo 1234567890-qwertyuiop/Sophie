@@ -1,0 +1,30 @@
+---
+title: "Install cbn"
+author: "Jim O."
+date: "10/9/2018"
+output: html_document
+---
+
+In this tutorial, we'll be installing the cbn package. There are two versions I will describe: One with preinstalled vector data and one without preinstalled vetor data.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
