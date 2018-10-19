@@ -29,10 +29,14 @@ gender_recognition(Rice)
 
 
 # Now, let's loop through 105 photos ----
+photos <- c("https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/m1.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/m2.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/m3.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/m4.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f1.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f1.jpg?raw=true"
+            )
 gender <- NULL
-photos <- c("https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/220px-Senator_Doug_Jones_official_photo.jpg?raw=true",
-             "http://www.femstory.com/images/condoleezza-rice.jpg")
-
 for (url in 1:length(photos)) {
   
   candidate = list(url = photos[url])
@@ -102,6 +106,6 @@ compare_candidates <- function(x, y) {
   }
 }
 
-compare_candidates(Obama, Rice)
+compare_candidates(dataGender[1], dataGender[5])
 
 
