@@ -30,29 +30,39 @@ gender_recognition(Rice)
 
 # Now, let's loop through 105 photos ----
 gender <- NULL
-photos <- c("https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f1.jpg?raw=true",
-            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f2.jpg?raw=true",
-            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f3.jpg?raw=true",
-            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f4.jpg?raw=true",
-            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f5.jpg?raw=true",
-            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f6.jpg?raw=true",
-            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f7.jpg?raw=true",
-            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f8.jpg?raw=true",
-            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f9.jpg?raw=true",
-            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f10.jpg?raw=true"   
-            )
-
-photos <- c(
-            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f11.jpg?raw=true",
-            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f12.jpg?raw=true",
-            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f13.jpg?raw=true",
-            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f14.jpg?raw=true",
-            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f15.jpg?raw=true",
-            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f16.jpg?raw=true",
-            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f17.jpg?raw=true",
-            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f18.jpg?raw=true",
-            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f19.jpg?raw=true",
-            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f20.jpg?raw=true" 
+photos <- c("https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f_1.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f_2.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f_3.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f_4.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f_5.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f_6.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f_7.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f_8.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f_9.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f_10.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f_11.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f_12.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f_13.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f_14.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f_15.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f_16.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f_18.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f_18.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f_19.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f_20.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f_21.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/f_22.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/m1.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/m2.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/m3.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/m4.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/m5.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/m6.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/m7.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/m8.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/m9.jpg?raw=true",
+            "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/m10.jpg?raw=true"
+            
             )
 
 for (url in 1:length(photos)) {
