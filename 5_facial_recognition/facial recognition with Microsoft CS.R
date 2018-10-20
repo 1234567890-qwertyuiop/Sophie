@@ -140,6 +140,9 @@ photos <- c("https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%2
             "https://github.com/1234567890-qwertyuiop/Sophie/blob/master/115th%20Congress/m81.jpg?raw=true"
              )
 
+library(curl)
+photos <- readLines(curl("https://raw.githubusercontent.com/1234567890-qwertyuiop/Sophie/master/115th%20Congress/list.csv"))
+  
 # See whether the face detection technology identifies gender correctly
 for (url in 1:length(photos)) {
   
